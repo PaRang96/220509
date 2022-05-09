@@ -122,19 +122,21 @@ int main()
 		}
 	}
 
-	for (int i = 0; i < 3; i++)
-	{
-		Player[i] = Cards[rand() % MAX];
-		AI[i] = Cards[rand() % MAX];
-	}
-
 	int PlayerSum = 0;
 	int AISum = 0;
 
-	for (int i = 0; i < 3; i++)
+	int Draws[6] = {};
+
+	for (int i = 0; i < 6; i++)
 	{
-		PlayerSum += Player[i];
-		AISum += AI[i];
+		if (i % 2 == 0)
+		{
+			PlayerSum += Cards[i];
+		}
+		else
+		{
+			AISum += Cards[i];
+		}
 	}
 
 	if (PlayerSum > 21 && AISum > 21)
@@ -142,46 +144,46 @@ int main()
 		cout << "Player Win: both players passed sum of 21" << endl;
 		cout << "Player: " << PlayerSum << endl;
 		cout << "AI: " << AISum << endl;
-		cout << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 		return -1;
 	}
 	else if (PlayerSum > 21)
 	{
 		cout << "Player Lost: greater than 21" << endl;
 		cout << "Player: " << PlayerSum << endl;
-		cout << "Player's numbers: " << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << "AI's numbers: " << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 		return -1;
 	}
 	else if (AISum > 21)
 	{
 		cout << "AI Lost: greater than 21" << endl;
 		cout << "AI: " << AISum << endl;
-		cout << "Player's numbers: " << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << "AI's numbers: " << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 		return -1;
 	}
 	
 	else if (PlayerSum == AISum)
 	{
 		cout << "Player Win: Got same number of - Player: " << PlayerSum << " & AI - " << AISum << endl;
-		cout << "Player's numbers: " << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << "AI's numbers: " << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 	}
 	else if (PlayerSum > AISum)
 	{
 		cout << "Winner: Player  - " << PlayerSum << endl;
 		cout << "AI: " << AISum << endl;
-		cout << "Player's numbers: " << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << "AI's numbers: " << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 	}
 	else
 	{
 		cout << "Winner: AI  - " << AISum << endl;
 		cout << "Player: " << PlayerSum << endl;
-		cout << "Player's numbers: " << Player[0] << " " << Player[1] << " " << Player[2] << endl;
-		cout << "AI's numbers: " << AI[0] << " " << AI[1] << " " << AI[2] << endl;
+		cout << Cards[0] << " " << Cards[2] << " " << Cards[4] << endl;
+		cout << Cards[1] << " " << Cards[3] << " " << Cards[5] << endl;
 	}
 
 	return 0;
